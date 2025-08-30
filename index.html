@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav h2 {
+      margin: 0;
+      color: #007bff;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: #0056b3;
+    }
+
+    /* Title */
+    h1 {
+      text-align: center;
+      padding: 30px 10px;
+      color: white;
+      animation: fadeIn 1.5s ease;
+    }
+
+    /* Semester Selector */
+    .semester-selector {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .semester-selector select {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Subjects */
+    .subjects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 12px;
+    }
+    .subject-btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, background 0.3s, color 0.3s;
+    }
+    .subject-btn:hover {
+      transform: scale(1.05);
+      background: #007bff;
+      color: white;
+    }
+    .subject-btn.active {
+      background: #0056b3;
+      color: white;
+    }
+
+    /* Tabs */
+    .tabs {
+      max-width: 850px;
+      margin: 0 auto;
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      animation: slideUp 1s ease;
+    }
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+    .tab-buttons button {
+      padding: 10px 20px;
+      border: none;
+      background: #f0f0f0;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .tab-buttons button.active {
+      background: #007bff;
+      color: white;
+    }
+
+    /* Content */
+    .content {
+      animation: fadeIn 0.8s ease;
+    }
+    .content ul {
+      list-style: none;
+      padding: 0;
+    }
+    .content li {
+      padding: 8px 0;
+      cursor: pointer;
+      color: #444;
+      transition: 0.3s;
+    }
+    .content li:hover {
+      color: #007bff;
+      transform: translateX(5px);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <h2>College Resources</h2>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="mailto:sp2100900@gmail.com">Contact</a></li>
+      <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+    </ul>
+  </nav>
+
+  <h1>Semester Resources For Electrical Branch</h1>
+
+  <!-- Semester Selector -->
+  <div class="semester-selector">
+    <label for="semester">Choose Semester:</label>
+    <select id="semester" onchange="changeSemester()">
+      <option value="0">Semester 1</option>
+      <option value="1">Semester 2</option>
+    </select>
+  </div>
+
+  <!-- Subjects -->
+  <div class="subjects" id="subjects"></div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab-buttons">
+      <button class="active" onclick="showTab('notes')">Notes</button>
+      <button onclick="showTab('pyqs')">PYQs</button>
+    </div>
+    <div class="content" id="notes"></div>
+    <div class="content" id="pyqs" style="display:none"></div>
+  </div>
+
+  <script>
+    const semesters = [
+      // Semester 1
+      [
+        {
+          subject: "Engineering Mathematics-1",
+          notes: [
+            { name: "Differential Calculus", link: "https://drive.google.com/" },
+            { name: "Linear Algebra", link: "https://drive.google.com/" },
+            { name: "Multiple Integrals", link: "https://drive.google.com/" },
+            { name: "Vector Calculus", link: "https://drive.google.com/" }
+          ],
+          pyqs: [
+            { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
+             { name: "2024-28 Major Paper", link: "https://drive.google.com/" }
+          ]
+        },
+        {
+          subject: "Basic Electrical Engineering",
+          notes: [
+            { name: "DC Circuits", link: "https://drive.google.com/file/d/1ifRCZ2VN8gq1_TifgIuATCc8rL0hDPGQ/view?usp=drive_link" },
+            { name: "AC Circuits", link: "https://drive.google.com/" },
+            { name: "Measuring Instruments", link: "https://drive.google.com/" },
+            { name: "Magnetic Circuits and Transformers ", link: "https://drive.google.com/" }
+          ],
+          pyqs: [
+            { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
+             { name: "2024-28 Major Paper", link: "https://drive.google.com/" }
+          ]
+        },
+        {
+          subject: "Electrical Wiring and Estimation",
+          notes: [
+            { name: "Unit-1", link: "https://drive.google.com/" },
+            { name: "Unit-2", link: "https://drive.google.com/" },
+            { name: "Unit-3", link: "https://drive.google.com/" },
+            { name: "Unit-4", link: "https://drive.google.com/" },
+            
+          ],
+          pyqs: [
+            { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
+             { name: "2024-28 Major Paper", link: "https://drive.google.com/" }
+          ]
+        },
+        {
+          subject: "Environmental Science and Green Chemistry",
+          notes: [
+            { name: "Unit 1: Basic Chemical Concepts", link: "https://drive.google.com/" },
+            { name: "Unit 2: Atmospheric chemistry & Water Chemistry", link: "https://drive.google.com/" },
+            { name: "Unit 3: Spectroscopic analytical methods", link: "https://drive.google.com/" },
+            { name: "Unit 4: Green Chemistry", link: "https://drive.google.com/" },
+            
+          ],
+          pyqs: [
+            { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
+             { name: "2024-28 Major Paper", link: "https://drive.google.com/" }
+          ]
+        },
+        {
+          subject: "TW&PC",
+          notes: [
+            { name: "Unit 1: Language and Communication ", link: "https://drive.google.com/" },
+            { name: "Unit 2: Towards Technical Writingy", link: "https://drive.google.com/" },
+            { name: "Unit 3: Drafting Skills & Career Correspondence", link: "https://drive.google.com/" },
+            { name: "Unit 4: Professional Practices with ICT Interface", link: "https://drive.google.com/" },
+            
+          ],
+          pyqs: [
+            { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
+             { name: "2024-28 Major Paper", link: "https://drive.google.com/" }
+          ]
+        },
+
+        
+      ],
+      // Semester 2 (demo subjects)
+      [
+        {
+          subject: "Engineering Physics",
+          notes: [
+            { name: "Wave Optics", link: "https://drive.google.com/" }
+          ],
+          pyqs: [
+            { name: "2023 Midterm", link: "https://drive.google.com/" }
+          ]
+        },
+        {
+          subject: "Programming in C",
+          notes: [
+            { name: "Functions", link: "https://drive.google.com/" }
+          ],
+          pyqs: [
+            { name: "2022 Endsem", link: "https://drive.google.com/" }
+          ]
+        }
+      ]
+    ];
+
+    let currentSemester = 0;
+    let currentSubject = 0;
+
+    function renderSubjects() {
+      const subjectsDiv = document.getElementById("subjects");
+      subjectsDiv.innerHTML = semesters[currentSemester]
+        .map((subj, i) =>
+          `<button class="subject-btn ${i===0 ? 'active':''}" onclick="selectSubject(${i})">${subj.subject}</button>`
+        ).join('');
+      currentSubject = 0;
+      renderContent();
+    }
+
+    function renderContent() {
+      const subj = semesters[currentSemester][currentSubject];
+      document.getElementById("notes").innerHTML =
+        `<h2>${subj.subject} - Notes</h2><ul>` +
+        subj.notes.map(n => `<li>📘 <a href="${n.link}" target="_blank">${n.name}</a></li>`).join('') +
+        `</ul>`;
+
+      document.getElementById("pyqs").innerHTML =
+        `<h2>${subj.subject} - PYQs</h2><ul>` +
+        subj.pyqs.map(p => `<li>📄 <a href="${p.link}" target="_blank">${p.name}</a></li>`).join('') +
+        `</ul>`;
+    }
+
+    function selectSubject(index) {
+      currentSubject = index;
+      document.querySelectorAll(".subject-btn").forEach(btn => btn.classList.remove("active"));
+      document.querySelectorAll(".subject-btn")[index].classList.add("active");
+      renderContent();
+    }
+
+    function showTab(tab) {
+      document.querySelectorAll(".tab-buttons button").forEach(btn => btn.classList.remove("active"));
+      event.target.classList.add("active");
+      document.getElementById("notes").style.display = tab === 'notes' ? 'block' : 'none';
+      document.getElementById("pyqs").style.display = tab === 'pyqs' ? 'block' : 'none';
+    }
+
+    function changeSemester() {
+      currentSemester = document.getElementById("semester").value;
+      renderSubjects();
+    }
+
+    // Initial Render
+    renderSubjects();
+  </script>
+</body>
+</html>
