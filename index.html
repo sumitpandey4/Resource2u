@@ -7,15 +7,16 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #007bff, #00c6ff);
+     /* background: linear-gradient(135deg, #4291e6, #6b1fce); */
       margin: 0;
       padding: 0;
       color: #333;
+      background-image: url(bgimage2.jpg);
     }
 
     /* Navigation Bar */
     nav {
-      background: #fff;
+      background: #e466d9;
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
@@ -50,7 +51,7 @@
     h1 {
       text-align: center;
       padding: 30px 10px;
-      color: white;
+      color: rgb(223, 156, 12);
       animation: fadeIn 1.5s ease;
     }
 
@@ -65,7 +66,7 @@
       border: none;
       font-size: 16px;
       cursor: pointer;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 3px 8px #d123a633;
     }
 
     /* Subjects */
@@ -81,17 +82,17 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      background: white;
+      background: rgba(149, 218, 214, 0.603);
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s, background 0.3s, color 0.3s;
     }
     .subject-btn:hover {
       transform: scale(1.05);
-      background: #007bff;
+      background: #ce10ce;
       color: white;
     }
     .subject-btn.active {
-      background: #0056b3;
+      background: #ce10ce;
       color: white;
     }
 
@@ -99,7 +100,7 @@
     .tabs {
       max-width: 850px;
       margin: 0 auto;
-      background: white;
+      background: rgba(226, 136, 101, 0.801);
       padding: 25px;
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -114,14 +115,14 @@
     .tab-buttons button {
       padding: 10px 20px;
       border: none;
-      background: #f0f0f0;
+      background: rgb(173 132 183);
       cursor: pointer;
       border-radius: 8px;
       font-weight: 600;
       transition: all 0.3s;
     }
     .tab-buttons button.active {
-      background: #007bff;
+      background: #ce10ce;
       color: white;
     }
 
@@ -140,7 +141,7 @@
       transition: 0.3s;
     }
     .content li:hover {
-      color: #007bff;
+      color:#ce10ce;
       transform: translateX(5px);
     }
 
@@ -174,6 +175,7 @@
     <select id="semester" onchange="changeSemester()">
       <option value="0">Semester 1</option>
       <option value="1">Semester 2</option>
+      <option value="2">Semester-3</option>
     </select>
   </div>
 
@@ -328,7 +330,29 @@
             { name: "2022 Endsem", link: "https://drive.google.com/" }
           ]
         }
+      ],
+      // Semester 3
+       [
+        {
+          subject: "Engineering Graphics",
+          notes: [
+            { name: "Wave Optics", link: "https://drive.google.com/" }
+          ],
+          pyqs: [
+            { name: "2023 Midterm", link: "https://drive.google.com/" }
+          ]
+        },
+        {
+          subject: "moles",
+          notes: [
+            { name: "Functions", link: "https://drive.google.com/" }
+          ],
+          pyqs: [
+            { name: "2022 Endsem", link: "https://drive.google.com/" }
+          ]
+        }
       ]
+      
     ];
 
     let currentSemester = 0;
