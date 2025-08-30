@@ -182,12 +182,17 @@
 
   <!-- Tabs -->
   <div class="tabs">
-    <div class="tab-buttons">
+    <div class="tab-buttons"> 
+      <button onclick="showTab('lecture')"> Lecture</button>
       <button class="active" onclick="showTab('notes')">Notes</button>
-      <button onclick="showTab('pyqs')">PYQs</button>
+      <button onclick="showTab('impque')">IMP QUESTIONS</button>
+       <button onclick="showTab('pyqs')">PYQs</button>
+      
     </div>
     <div class="content" id="notes"></div>
     <div class="content" id="pyqs" style="display:none"></div>
+    <div class="content" id="lecture" style="display:none"></div>
+    <div class="content" id="impque" style="display:none"></div>
   </div>
 
   <script>
@@ -202,6 +207,15 @@
             { name: "Multiple Integrals", link: "https://drive.google.com/" },
             { name: "Vector Calculus", link: "https://drive.google.com/" }
           ],
+          lecture: [
+            { name:"Unit-1",link: "https://www.youtube.com/watch?v=FVf44QzAles&list=PL5Dqs90qDljWEDk1CXQhpPHtzeIWosRU0com/" },
+            { name:"Unit-2",link: "https://www.youtube.com/watch?v=Fle08s-fhFI&list=PL5Dqs90qDljU0KxoEzJUbCGWuEyocXe_V" },
+            { name:"Unit-3",link: "https://www.youtube.com/watch?v=pVJhO86ZhHk&list=PL5Dqs90qDljVUxYTATfL8sYBQOiPV1pGg"},
+            { name:"Unit-4",link: "https://www.youtube.com/watch?v=QmMLgdxyWdQ&list=PL5Dqs90qDljW4JoUHHcHPJBc0iN54qlXw"}
+          ],
+          impque: [
+            { name:"Unit-1",link: "www.youtube.com/" }
+          ],
           pyqs: [
             { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
              { name: "2024-28 Major Paper", link: "https://drive.google.com/" }
@@ -214,6 +228,16 @@
             { name: "AC Circuits", link: "https://drive.google.com/" },
             { name: "Measuring Instruments", link: "https://drive.google.com/" },
             { name: "Magnetic Circuits and Transformers ", link: "https://drive.google.com/" }
+          ],
+          lecture: [
+            { name:"Unit-1",link: "https://www.youtube.com/watch?v=rttcOFKPphQ&list=PLPIwNooIb9vjC5Hz7xIUXJw54LkB2MG2i" },
+            { name:"Unit-2",link: "https://www.youtube.com/watch?v=BZOVDIvwnHY&list=PLzWq2mmpc8XdGtbazjrMEAfJuoG0IwLTP"},
+            { name:"Unit-3 ",link: "https://www.youtube.com/watch?v=qxqGIGjyYTU&list=PLhSp9OSVmeyKvw2DTpzlCdl226DJ-QjTx"},
+            { name:"Unit-4",link: "https://www.youtube.com/watch?v=gia2e9NcfU8&list=PL12HSYlkQD3ZE9CCoZ1UOeNiAjO0QFiSf"},
+            { name:"Transformer in one-shot",link: "https://www.youtube.com/watch?v=9xqgbpOfhG4&pp=ygUXdHJhbnNmb3JtZXIgaW4gb25lc2hvdCA%3D"}
+          ],
+          impque: [
+            { name:"Unit-1",link: "www.youtube.com/" }
           ],
           pyqs: [
             { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
@@ -229,6 +253,12 @@
             { name: "Unit-4", link: "https://drive.google.com/" },
             
           ],
+          lecture: [
+             
+          ],
+          impque: [
+            { name:"Unit-1",link: "www.youtube.com/" }
+          ],
           pyqs: [
             { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
              { name: "2024-28 Major Paper", link: "https://drive.google.com/" }
@@ -243,6 +273,12 @@
             { name: "Unit 4: Green Chemistry", link: "https://drive.google.com/" },
             
           ],
+          lecture: [
+            { name:"Unit-1",link: "www.youtube.com/" }
+          ],
+          impque: [
+            { name:"Unit-1",link: "www.youtube.com/" }
+          ],
           pyqs: [
             { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
              { name: "2024-28 Major Paper", link: "https://drive.google.com/" }
@@ -256,6 +292,13 @@
             { name: "Unit 3: Drafting Skills & Career Correspondence", link: "https://drive.google.com/" },
             { name: "Unit 4: Professional Practices with ICT Interface", link: "https://drive.google.com/" },
             
+          ],
+          lecture: [
+          
+    
+          ],
+          impque: [
+            { name:"Unit-1",link: "www.youtube.com/" }
           ],
           pyqs: [
             { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
@@ -312,6 +355,14 @@
         `<h2>${subj.subject} - PYQs</h2><ul>` +
         subj.pyqs.map(p => `<li>📄 <a href="${p.link}" target="_blank">${p.name}</a></li>`).join('') +
         `</ul>`;
+        document.getElementById("lecture").innerHTML =
+        `<h2>${subj.subject} - Lecture</h2><ul>` +
+        subj.lecture.map(p => `<li>📄 <a href="${p.link}" target="_blank">${p.name}</a></li>`).join('') +
+        `</ul>`;
+        document.getElementById("impque").innerHTML =
+        `<h2>${subj.subject} - IMPQUE</h2><ul>` +
+        subj.impque.map(p => `<li>📄 <a href="${p.link}" target="_blank">${p.name}</a></li>`).join('') +
+        `</ul>`;
     }
 
     function selectSubject(index) {
@@ -326,6 +377,8 @@
       event.target.classList.add("active");
       document.getElementById("notes").style.display = tab === 'notes' ? 'block' : 'none';
       document.getElementById("pyqs").style.display = tab === 'pyqs' ? 'block' : 'none';
+      document.getElementById("lecture").style.display = tab === 'lecture' ? 'block' : 'none';
+      document.getElementById("impque").style.display = tab === 'impque' ? 'block' : 'none';
     }
 
     function changeSemester() {
