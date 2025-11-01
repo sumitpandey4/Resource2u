@@ -1,479 +1,629 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resources</title>
-  <link rel="icon" type ="image/png" href="icons8-books-emoji-48.png" >
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     /* background: linear-gradient(135deg, #4291e6, #6b1fce); */
-      margin: 0;
-      padding: 0;
-      color: #333;
-      background-image: url(bgimage2.jpg);
-      background-repeat: no-repeat;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resources</title>
+    <link rel="icon" type="image/png" href="icons8-books-emoji-48.png" />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        /* background: linear-gradient(135deg, #5509b9, #6b1fce); */
+        margin: 0;
+        padding: 0;
+        color: #333;
+        background-image: url(https://resource2u.vercel.app/bgimage2.jpg);
+        max-height: 100%;
+        max-width: 100%;
+        /* background-repeat: no-repeat; */
+         background-size: cover; 
+      }
 
-    /* Navigation Bar */
-    nav {
-      background: #e466d9;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav h2 {
-      margin: 0;
-      color: #007bff;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 20px;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #007bff;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    nav ul li a:hover {
-      color: #0056b3;
-    }
+      /* Navigation Bar */
+      nav {
+        background: #e466d9;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      nav h2 {
+        margin: 0;
+        color: #007bff;
+      }
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+      nav ul li a:hover {
+        color: #0056b3;
+      }
 
-    /* Title */
-    h1 {
-      text-align: center;
-      padding: 30px 10px;
-      color: rgb(223, 156, 12);
-      animation: fadeIn 1.5s ease;
-    }
+      /* Title */
+      h1 {
+        text-align: center;
+        padding: 30px 10px;
+        color: rgb(223, 156, 12);
+        animation: fadeIn 1.5s ease;
+      }
 
-    /* Semester Selector */
-    .semester-selector {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .semester-selector select {
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 3px 8px #d123a633;
-    }
+      /* Semester Selector */
+      .semester-selector {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .semester-selector select {
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 3px 8px #d123a633;
+      }
 
-    /* Subjects */
-    .subjects {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 20px;
-      gap: 12px;
-    }
-    .subject-btn {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      background: rgba(149, 218, 214, 0.603);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s, background 0.3s, color 0.3s;
-    }
-    .subject-btn:hover {
-      transform: scale(1.05);
-      background: #ce10ce;
-      color: white;
-    }
-    .subject-btn.active {
-      background: #ce10ce;
-      color: white;
-    }
+      /* Subjects */
+      .subjects {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 20px;
+        gap: 12px;
+      }
+      .subject-btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background: rgba(149, 218, 214, 0.603);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, background 0.3s, color 0.3s;
+      }
+      .subject-btn:hover {
+        transform: scale(1.05);
+        background: #ce10ce;
+        color: white;
+      }
+      .subject-btn.active {
+        background: #ce10ce;
+        color: white;
+      }
 
-    /* Tabs */
-    .tabs {
-      max-width: 850px;
-      margin: 0 auto;
-      background: rgba(226, 136, 101, 0.801);
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      animation: slideUp 1s ease;
-    }
-    .tab-buttons {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-      gap: 10px;
-    }
-    .tab-buttons button {
-      padding: 10px 20px;
-      border: none;
-      background: rgb(173 132 183);
-      cursor: pointer;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-    .tab-buttons button.active {
-      background: #ce10ce;
-      color: white;
-    }
+      /* Tabs */
+      .tabs {
+        max-width: 850px;
+        margin: 0 auto;
+        background: rgba(226, 136, 101, 0.801);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        animation: slideUp 1s ease;
+      }
+      .tab-buttons {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        gap: 10px;
+      }
+      .tab-buttons button {
+        padding: 10px 20px;
+        border: none;
+        background: rgb(173 132 183);
+        cursor: pointer;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+      .tab-buttons button.active {
+        background: #ce10ce;
+        color: white;
+      }
 
-    /* Content */
-    .content {
-      animation: fadeIn 0.8s ease;
-    }
-    .content ul {
-      list-style: none;
-      padding: 0;
-    }
-    .content li {
-      padding: 8px 0;
-      cursor: pointer;
-      color: #444;
-      transition: 0.3s;
-    }
-    .content li:hover {
-      color:#ce10ce;
-      transform: translateX(5px);
-    }
+      /* Content */
+      .content {
+        animation: fadeIn 0.8s ease;
+      }
+      .content ul {
+        list-style: none;
+        padding: 0;
+      }
+      .content li {
+        padding: 8px 0;
+        cursor: pointer;
+        color: #444;
+        transition: 0.3s;
+      }
+      .content li:hover {
+        color: #ce10ce;
+        transform: translateX(5px);
+      }
 
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideUp {
-      from { transform: translateY(40px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-  </style>
-</head>
-<body>
-  <!-- Navigation Bar -->
-  <nav>
-    <h2>College Resources</h2>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="mailto:sp2100900@gmail.com">Contact</a></li>
-      <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
-    </ul>
-  </nav>
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(40px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <h2>College Resources</h2>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="mailto:sp2100900@gmail.com">Contact</a></li>
+        <li>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank"
+            >LinkedIn</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-  <h1>Semester Resources For Electrical Branch</h1>
+    <h1>Semester Resources For Electrical Branch</h1>
 
-  <!-- Semester Selector -->
-  <div class="semester-selector">
-    <label for="semester">Choose Semester:</label>
-    <select id="semester" onchange="changeSemester()">
-      <option value="0">Semester 1</option>
-      <option value="1">Semester 2</option>
-      <option value="2">Semester-3</option>
-    </select>
-  </div>
-
-  <!-- Subjects -->
-  <div class="subjects" id="subjects"></div>
-
-  <!-- Tabs -->
-  <div class="tabs">
-    <div class="tab-buttons"> 
-      <button onclick="showTab('lecture')"> Lecture</button>
-      <button class="active" onclick="showTab('notes')">Notes</button>
-      <button onclick="showTab('impque')">IMP QUESTIONS</button>
-       <button onclick="showTab('pyqs')">PYQs</button>
-      
+    <!-- Semester Selector -->
+    <div class="semester-selector">
+      <label for="semester">Choose Semester:</label>
+      <select id="semester" onchange="changeSemester()">
+        <option value="0">Semester 1</option>
+        <option value="1">Semester 2</option>
+        <option value="2">Semester-3</option>
+      </select>
     </div>
-    <div class="content" id="notes"></div>
-    <div class="content" id="pyqs" style="display:none"></div>
-    <div class="content" id="lecture" style="display:none"></div>
-    <div class="content" id="impque" style="display:none"></div>
-  </div>
 
-  <script>
-    const semesters = [
-      // Semester 1
-      [
-        {
-          subject: "Engineering Mathematics-1",
-          notes: [
-            { name: "Differential Calculus", link: "https://drive.google.com/" },
-            { name: "Linear Algebra", link: "https://drive.google.com/" },
-            { name: "Multiple Integrals", link: "https://drive.google.com/" },
-            { name: "Vector Calculus", link: "https://drive.google.com/" }
-          ],
-          lecture: [
-            { name:"Unit-1",link: "https://www.youtube.com/watch?v=FVf44QzAles&list=PL5Dqs90qDljWEDk1CXQhpPHtzeIWosRU0com/" },
-            { name:"Unit-2",link: "https://www.youtube.com/watch?v=Fle08s-fhFI&list=PL5Dqs90qDljU0KxoEzJUbCGWuEyocXe_V" },
-            { name:"Unit-3",link: "https://www.youtube.com/watch?v=pVJhO86ZhHk&list=PL5Dqs90qDljVUxYTATfL8sYBQOiPV1pGg"},
-            { name:"Unit-4",link: "https://www.youtube.com/watch?v=QmMLgdxyWdQ&list=PL5Dqs90qDljW4JoUHHcHPJBc0iN54qlXw"}
-          ],
-          impque: [
-            { name:"Unit-1",link: "www.youtube.com/" }
-          ],
-          pyqs: [
-            { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
-             { name: "2024-28 Major Paper", link: "https://drive.google.com/" }
-          ]
-        },
-        {
-          subject: "Basic Electrical Engineering",
-          notes: [
-            { name: "DC Circuits", link: "https://drive.google.com/file/d/1ifRCZ2VN8gq1_TifgIuATCc8rL0hDPGQ/view?usp=drive_link" },
-            { name: "AC Circuits", link: "https://drive.google.com/" },
-            { name: "Measuring Instruments", link: "https://drive.google.com/" },
-            { name: "Magnetic Circuits and Transformers ", link: "https://drive.google.com/" }
-          ],
-          lecture: [
-            { name:"Unit-1",link: "https://www.youtube.com/watch?v=rttcOFKPphQ&list=PLPIwNooIb9vjC5Hz7xIUXJw54LkB2MG2i" },
-            { name:"Unit-2",link: "https://www.youtube.com/watch?v=BZOVDIvwnHY&list=PLzWq2mmpc8XdGtbazjrMEAfJuoG0IwLTP"},
-            { name:"Unit-3 ",link: "https://www.youtube.com/watch?v=qxqGIGjyYTU&list=PLhSp9OSVmeyKvw2DTpzlCdl226DJ-QjTx"},
-            { name:"Unit-4",link: "https://www.youtube.com/watch?v=gia2e9NcfU8&list=PL12HSYlkQD3ZE9CCoZ1UOeNiAjO0QFiSf"},
-            { name:"Transformer in one-shot",link: "https://www.youtube.com/watch?v=9xqgbpOfhG4&pp=ygUXdHJhbnNmb3JtZXIgaW4gb25lc2hvdCA%3D"}
-          ],
-          impque: [
-            { name:"Unit-1",link: "www.youtube.com/" }
-          ],
-          pyqs: [
-            { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
-             { name: "2024-28 Major Paper", link: "https://drive.google.com/" }
-          ]
-        },
-        {
-          subject: "Electrical Wiring and Estimation",
-          notes: [
-            { name: "Unit-1", link: "https://drive.google.com/" },
-            { name: "Unit-2", link: "https://drive.google.com/" },
-            { name: "Unit-3", link: "https://drive.google.com/" },
-            { name: "Unit-4", link: "https://drive.google.com/" },
-            
-          ],
-          lecture: [
-             
-          ],
-          impque: [
-            { name:"Unit-1",link: "www.youtube.com/" }
-          ],
-          pyqs: [
-            { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
-             { name: "2024-28 Major Paper", link: "https://drive.google.com/" }
-          ]
-        },
-        {
-          subject: "Environmental Science and Green Chemistry",
-          notes: [
-            { name: "Unit 1: Basic Chemical Concepts", link: "https://drive.google.com/" },
-            { name: "Unit 2: Atmospheric chemistry & Water Chemistry", link: "https://drive.google.com/" },
-            { name: "Unit 3: Spectroscopic analytical methods", link: "https://drive.google.com/" },
-            { name: "Unit 4: Green Chemistry", link: "https://drive.google.com/" },
-            
-          ],
-          lecture: [
-            { name:"Unit-1",link: "www.youtube.com/" }
-          ],
-          impque: [
-            { name:"Unit-1",link: "www.youtube.com/" }
-          ],
-          pyqs: [
-            { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
-             { name: "2024-28 Major Paper", link: "https://drive.google.com/" }
-          ]
-        },
-        {
-          subject: "TW&PC",
-          notes: [
-            { name: "Unit 1: Language and Communication ", link: "https://drive.google.com/" },
-            { name: "Unit 2: Towards Technical Writingy", link: "https://drive.google.com/" },
-            { name: "Unit 3: Drafting Skills & Career Correspondence", link: "https://drive.google.com/" },
-            { name: "Unit 4: Professional Practices with ICT Interface", link: "https://drive.google.com/" },
-            
-          ],
-          lecture: [
-          
-    
-          ],
-          impque: [
-            { name:"Unit-1",link: "www.youtube.com/" }
-          ],
-          pyqs: [
-            { name: "2024-28 Minor Paper", link: "https://drive.google.com/" },
-             { name: "2024-28 Major Paper", link: "https://drive.google.com/" }
-          ]
-        },
+    <!-- Subjects -->
+    <div class="subjects" id="subjects"></div>
 
-        
-      ],
-      // Semester 2 (demo subjects)
-      [
-        {
-          subject: "Engineering Physics",
-          notes: [
-            { name: "Wave Optics", link: "https://drive.google.com/" }
-          ],
-          pyqs: [
-            { name: "2023 Midterm", link: "https://drive.google.com/" }
-          ]
-        },
-        {
-          subject: "Programming in C",
-          notes: [
-            { name: "Functions", link: "https://drive.google.com/" }
-          ],
-          pyqs: [
-            { name: "2022 Endsem", link: "https://drive.google.com/" }
-          ]
-        }
-      ],
-      // Semester 3
-       [
-        {
-          subject: "Complex Variables and Numerical Techniques",
-          notes: [
-            { name: "Unit-1 Functions of Complex Variable I", link: "https://drive.google.com/" },
-            { name: "Unit-2 Functions of Complex Variable II",link: ""},
-          ],
-          pyqs: [
-            { name: "2023 Midterm", link: "https://drive.google.com/" }
-          ],
-          lecture: [
-            { name:"Unit-1 Functions of Complex Variable I",link: "https://www.youtube.com/watch?v=0a_txe5nzFQ&list=PL5Dqs90qDljVCPXMA2wwA9oIV3blxLLQ6"},
-            { name:"Unit-2 Functions of Complex Variable II" , link: "https://www.youtube.com/watch?v=gLXNGl3FsuM&list=PL5Dqs90qDljWlvUJ-YmjMsjkAANOagCk7"},
-          ]
-        },
-        {
-          subject: "Digital Electronics ",
-          notes: [
-            { name: "UNIT-I", link: "https://drive.google.com/" },
-            { name: "UNIT-II", link: "https://drive.google.com/" },
-            { name: "UNIT-III", link: "https://drive.google.com/" },
-            { name: "UNIT-IV", link: "https://drive.google.com/" }
-          ],
-           lecture: [
-            { name:"Unit-1 Functions of Complex Variable I",link: "https://www.youtube.com/watch?v=0a_txe5nzFQ&list=PL5Dqs90qDljVCPXMA2wwA9oIV3blxLLQ6"},
-            { name:"Unit-2 Functions of Complex Variable II" , link: "https://www.youtube.com/watch?v=gLXNGl3FsuM&list=PL5Dqs90qDljWlvUJ-YmjMsjkAANOagCk7"},
-          ],
-          pyqs: [
-            { name: "2022 Endsem", link: "https://drive.google.com/" }
-          ]
-        },
-        {
-          subject: "Analysis Of Linear Systems",
-          notes: [
-            { name: "UNIT-I", link: "https://drive.google.com/" },
-            { name: "UNIT-II", link: "https://drive.google.com/" },
-            { name: "UNIT-III", link: "https://drive.google.com/" },
-            { name: "UNIT-IV", link: "https://drive.google.com/" }
-          ],
-          lecture: [
-            { name:"Unit-1 Functions of Complex Variable I",link: "https://www.youtube.com/watch?v=0a_txe5nzFQ&list=PL5Dqs90qDljVCPXMA2wwA9oIV3blxLLQ6"},
-            { name:"Unit-2 Functions of Complex Variable II" , link: "https://www.youtube.com/watch?v=gLXNGl3FsuM&list=PL5Dqs90qDljWlvUJ-YmjMsjkAANOagCk7"},
-          ],
-          pyqs: [
-            { name: "2022 Endsem", link: "https://drive.google.com/" }
-          ]
-        },
-        {
-          subject: "Fundamentals of DC Electrical Machines & Transformers",
-          notes: [
-            { name: "Principles of Electro-mechanical Energy Conversion ", link: "https://drive.google.com/" },
-            { name: "D.C. Generator ", link: "https://drive.google.com/" },
-            { name: "D.C. Motor", link: "https://drive.google.com/" },
-            { name: "Transformer", link: "https://drive.google.com/" }
-          ],
-          lecture: [
-            { name:"Unit-1 Functions of Complex Variable I",link: "https://www.youtube.com/watch?v=0a_txe5nzFQ&list=PL5Dqs90qDljVCPXMA2wwA9oIV3blxLLQ6"},
-            { name:"Unit-2 Functions of Complex Variable II" , link: "https://www.youtube.com/watch?v=gLXNGl3FsuM&list=PL5Dqs90qDljWlvUJ-YmjMsjkAANOagCk7"},
-          ],
-          pyqs: [
-            { name: "2022 Endsem", link: "https://drive.google.com/" }
-          ]
-        }
-        ,{
-          subject: "Electrical Measurement & Measuring Instruments",
-          notes: [
-            { name: "Fundamentals of Measurement Systems  ", link: "https://drive.google.com/" },
-            { name: "Analog Measurement of Electrical Quantities", link: "https://drive.google.com/" },
-            { name: "Instrument Transformers & A.C. Bridges", link: "https://drive.google.com/" },
-            { name: "Magnetic Measurement & Digital Measurement of Electrical Quantities ", link: "https://drive.google.com/" }
-          ],
-          lecture: [
-            { name:"Unit-1 Functions of Complex Variable I",link: "https://www.youtube.com/watch?v=0a_txe5nzFQ&list=PL5Dqs90qDljVCPXMA2wwA9oIV3blxLLQ6"},
-            { name:"Unit-2 Functions of Complex Variable II" , link: "https://www.youtube.com/watch?v=gLXNGl3FsuM&list=PL5Dqs90qDljWlvUJ-YmjMsjkAANOagCk7"},
-          ],
-          pyqs: [
-            { name: "2022 Endsem", link: "https://drive.google.com/" }
-          ]
-        }
-      ]
-      
-    ];
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab-buttons">
+        <button onclick="showTab('lecture')">Lecture</button>
+        <button class="active" onclick="showTab('notes')">Notes</button>
+        <button onclick="showTab('impque')">IMP QUESTIONS</button>
+        <button onclick="showTab('pyqs')">PYQs</button>
+      </div>
+      <div class="content" id="notes"></div>
+      <div class="content" id="pyqs" style="display: none"></div>
+      <div class="content" id="lecture" style="display: none"></div>
+      <div class="content" id="impque" style="display: none"></div>
+    </div>
 
-    let currentSemester = 0;
-    let currentSubject = 0;
+    <script>
+      const semesters = [
+        // Semester 1
+        [
+          {
+            subject: "Engineering Mathematics-1",
+            notes: [
+              {
+                name: "Differential Calculus",
+                link: "https://drive.google.com/",
+              },
+              { name: "Linear Algebra", link: "https://drive.google.com/" },
+              { name: "Multiple Integrals", link: "https://drive.google.com/" },
+              { name: "Vector Calculus", link: "https://drive.google.com/" },
+            ],
+            lecture: [
+              {
+                name: "Unit-1",
+                link: "https://www.youtube.com/watch?v=FVf44QzAles&list=PL5Dqs90qDljWEDk1CXQhpPHtzeIWosRU0com/",
+              },
+              {
+                name: "Unit-2",
+                link: "https://www.youtube.com/watch?v=Fle08s-fhFI&list=PL5Dqs90qDljU0KxoEzJUbCGWuEyocXe_V",
+              },
+              {
+                name: "Unit-3",
+                link: "https://www.youtube.com/watch?v=pVJhO86ZhHk&list=PL5Dqs90qDljVUxYTATfL8sYBQOiPV1pGg",
+              },
+              {
+                name: "Unit-4",
+                link: "https://www.youtube.com/watch?v=QmMLgdxyWdQ&list=PL5Dqs90qDljW4JoUHHcHPJBc0iN54qlXw",
+              },
+            ],
+            impque: [{ name: "Unit-1", link: "www.youtube.com/" }],
+            pyqs: [
+              {
+                name: "2024-28 Minor Paper",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "2024-28 Major Paper",
+                link: "https://drive.google.com/",
+              },
+            ],
+          },
+          {
+            subject: "Basic Electrical Engineering",
+            notes: [
+              {
+                name: "DC Circuits",
+                link: "https://drive.google.com/file/d/1ifRCZ2VN8gq1_TifgIuATCc8rL0hDPGQ/view?usp=drive_link",
+              },
+              { name: "AC Circuits", link: "https://drive.google.com/" },
+              {
+                name: "Measuring Instruments",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "Magnetic Circuits and Transformers ",
+                link: "https://drive.google.com/",
+              },
+            ],
+            lecture: [
+              {
+                name: "Unit-1",
+                link: "https://www.youtube.com/watch?v=rttcOFKPphQ&list=PLPIwNooIb9vjC5Hz7xIUXJw54LkB2MG2i",
+              },
+              {
+                name: "Unit-2",
+                link: "https://www.youtube.com/watch?v=BZOVDIvwnHY&list=PLzWq2mmpc8XdGtbazjrMEAfJuoG0IwLTP",
+              },
+              {
+                name: "Unit-3 ",
+                link: "https://www.youtube.com/watch?v=qxqGIGjyYTU&list=PLhSp9OSVmeyKvw2DTpzlCdl226DJ-QjTx",
+              },
+              {
+                name: "Unit-4",
+                link: "https://www.youtube.com/watch?v=gia2e9NcfU8&list=PL12HSYlkQD3ZE9CCoZ1UOeNiAjO0QFiSf",
+              },
+              {
+                name: "Transformer in one-shot",
+                link: "https://www.youtube.com/watch?v=9xqgbpOfhG4&pp=ygUXdHJhbnNmb3JtZXIgaW4gb25lc2hvdCA%3D",
+              },
+            ],
+            impque: [{ name: "Unit-1", link: "www.youtube.com/" }],
+            pyqs: [
+              {
+                name: "2024-28 Minor Paper",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "2024-28 Major Paper",
+                link: "https://drive.google.com/",
+              },
+            ],
+          },
+          {
+            subject: "Electrical Wiring and Estimation",
+            notes: [
+              { name: "Unit-1", link: "https://drive.google.com/" },
+              { name: "Unit-2", link: "https://drive.google.com/" },
+              { name: "Unit-3", link: "https://drive.google.com/" },
+              { name: "Unit-4", link: "https://drive.google.com/" },
+            ],
+            lecture: [],
+            impque: [{ name: "Unit-1", link: "www.youtube.com/" }],
+            pyqs: [
+              {
+                name: "2024-28 Minor Paper",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "2024-28 Major Paper",
+                link: "https://drive.google.com/",
+              },
+            ],
+          },
+          {
+            subject: "Environmental Science and Green Chemistry",
+            notes: [
+              {
+                name: "Unit 1: Basic Chemical Concepts",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "Unit 2: Atmospheric chemistry & Water Chemistry",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "Unit 3: Spectroscopic analytical methods",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "Unit 4: Green Chemistry",
+                link: "https://drive.google.com/",
+              },
+            ],
+            lecture: [{ name: "Unit-1", link: "www.youtube.com/" }],
+            impque: [{ name: "Unit-1", link: "www.youtube.com/" }],
+            pyqs: [
+              {
+                name: "2024-28 Minor Paper",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "2024-28 Major Paper",
+                link: "https://drive.google.com/",
+              },
+            ],
+          },
+          {
+            subject: "TW&PC",
+            notes: [
+              {
+                name: "Unit 1: Language and Communication ",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "Unit 2: Towards Technical Writingy",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "Unit 3: Drafting Skills & Career Correspondence",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "Unit 4: Professional Practices with ICT Interface",
+                link: "https://drive.google.com/",
+              },
+            ],
+            lecture: [],
+            impque: [{ name: "Unit-1", link: "www.youtube.com/" }],
+            pyqs: [
+              {
+                name: "2024-28 Minor Paper",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "2024-28 Major Paper",
+                link: "https://drive.google.com/",
+              },
+            ],
+          },
+        ],
+        // Semester 2 (demo subjects)
+        [
+          {
+            subject: "Engineering Physics",
+            notes: [{ name: "Wave Optics", link: "https://drive.google.com/" }],
+            pyqs: [{ name: "2023 Midterm", link: "https://drive.google.com/" }],
+          },
+          {
+            subject: "Programming in C",
+            notes: [{ name: "Functions", link: "https://drive.google.com/" }],
+            pyqs: [{ name: "2022 Endsem", link: "https://drive.google.com/" }],
+          },
+        ],
+        // Semester 3
+        [
+          {
+            subject: "Complex Variables and Numerical Techniques",
+            notes: [
+              {
+                name: "Unit-1 Functions of Complex Variable I",
+                link: "https://drive.google.com/",
+              },
+              { name: "Unit-2 Functions of Complex Variable II", link: "" },
+            ],
+            pyqs: [{ name: "2023 Midterm", link: "https://drive.google.com/" }],
+            lecture: [
+              {
+                name: "Unit-1 Functions of Complex Variable I",
+                link: "https://www.youtube.com/watch?v=0a_txe5nzFQ&list=PL5Dqs90qDljVCPXMA2wwA9oIV3blxLLQ6",
+              },
+              {
+                name: "Unit-2 Functions of Complex Variable II",
+                link: "https://www.youtube.com/watch?v=gLXNGl3FsuM&list=PL5Dqs90qDljWlvUJ-YmjMsjkAANOagCk7",
+              },
+            ],
+          },
+          {
+            subject: "Digital Electronics ",
+            notes: [
+              { name: "UNIT-I", link: "https://drive.google.com/" },
+              { name: "UNIT-II", link: "https://drive.google.com/" },
+              { name: "UNIT-III", link: "https://drive.google.com/" },
+              { name: "UNIT-IV", link: "https://drive.google.com/" },
+            ],
+            lecture: [
+              {
+                name: "Unit-1 Functions of Complex Variable I",
+                link: "https://www.youtube.com/watch?v=0a_txe5nzFQ&list=PL5Dqs90qDljVCPXMA2wwA9oIV3blxLLQ6",
+              },
+              {
+                name: "Unit-2 Functions of Complex Variable II",
+                link: "https://www.youtube.com/watch?v=gLXNGl3FsuM&list=PL5Dqs90qDljWlvUJ-YmjMsjkAANOagCk7",
+              },
+            ],
+            pyqs: [{ name: "2022 Endsem", link: "https://drive.google.com/" }],
+          },
+          {
+            subject: "Analysis Of Linear Systems",
+            notes: [
+              { name: "UNIT-I", link: "https://drive.google.com/" },
+              { name: "UNIT-II", link: "https://drive.google.com/" },
+              { name: "UNIT-III", link: "https://drive.google.com/" },
+              { name: "UNIT-IV", link: "https://drive.google.com/" },
+            ],
+            lecture: [
+              {
+                name: "Unit-1 Functions of Complex Variable I",
+                link: "https://www.youtube.com/watch?v=0a_txe5nzFQ&list=PL5Dqs90qDljVCPXMA2wwA9oIV3blxLLQ6",
+              },
+              {
+                name: "Unit-2 Functions of Complex Variable II",
+                link: "https://www.youtube.com/watch?v=gLXNGl3FsuM&list=PL5Dqs90qDljWlvUJ-YmjMsjkAANOagCk7",
+              },
+            ],
+            pyqs: [{ name: "2022 Endsem", link: "https://drive.google.com/" }],
+          },
+          {
+            subject: "Fundamentals of DC Electrical Machines & Transformers",
+            notes: [
+              {
+                name: "Principles of Electro-mechanical Energy Conversion ",
+                link: "https://drive.google.com/",
+              },
+              { name: "D.C. Generator ", link: "https://drive.google.com/" },
+              { name: "D.C. Motor", link: "https://drive.google.com/" },
+              { name: "Transformer", link: "https://drive.google.com/" },
+            ],
+            lecture: [
+              {
+                name: "Unit-1 Functions of Complex Variable I",
+                link: "https://www.youtube.com/watch?v=0a_txe5nzFQ&list=PL5Dqs90qDljVCPXMA2wwA9oIV3blxLLQ6",
+              },
+              {
+                name: "Unit-2 Functions of Complex Variable II",
+                link: "https://www.youtube.com/watch?v=gLXNGl3FsuM&list=PL5Dqs90qDljWlvUJ-YmjMsjkAANOagCk7",
+              },
+            ],
+            pyqs: [{ name: "2022 Endsem", link: "https://drive.google.com/" }],
+          },
+          {
+            subject: "Electrical Measurement & Measuring Instruments",
+            notes: [
+              {
+                name: "Fundamentals of Measurement Systems  ",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "Analog Measurement of Electrical Quantities",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "Instrument Transformers & A.C. Bridges",
+                link: "https://drive.google.com/",
+              },
+              {
+                name: "Magnetic Measurement & Digital Measurement of Electrical Quantities ",
+                link: "https://drive.google.com/",
+              },
+            ],
+            lecture: [
+              {
+                name: "Unit-1 Functions of Complex Variable I",
+                link: "https://www.youtube.com/watch?v=0a_txe5nzFQ&list=PL5Dqs90qDljVCPXMA2wwA9oIV3blxLLQ6",
+              },
+              {
+                name: "Unit-2 Functions of Complex Variable II",
+                link: "https://www.youtube.com/watch?v=gLXNGl3FsuM&list=PL5Dqs90qDljWlvUJ-YmjMsjkAANOagCk7",
+              },
+            ],
+            pyqs: [{ name: "2022 Endsem", link: "https://drive.google.com/" }],
+          },
+        ],
+      ];
 
-    function renderSubjects() {
-      const subjectsDiv = document.getElementById("subjects");
-      subjectsDiv.innerHTML = semesters[currentSemester]
-        .map((subj, i) =>
-          `<button class="subject-btn ${i===0 ? 'active':''}" onclick="selectSubject(${i})">${subj.subject}</button>`
-        ).join('');
-      currentSubject = 0;
-      renderContent();
-    }
+      let currentSemester = 0;
+      let currentSubject = 0;
 
-    function renderContent() {
-      const subj = semesters[currentSemester][currentSubject];
-      document.getElementById("notes").innerHTML =
-        `<h2>${subj.subject} - Notes</h2><ul>` +
-        subj.notes.map(n => `<li>📘 <a href="${n.link}" target="_blank">${n.name}</a></li>`).join('') +
-        `</ul>`;
+      function renderSubjects() {
+        const subjectsDiv = document.getElementById("subjects");
+        subjectsDiv.innerHTML = semesters[currentSemester]
+          .map(
+            (subj, i) =>
+              `<button class="subject-btn ${
+                i === 0 ? "active" : ""
+              }" onclick="selectSubject(${i})">${subj.subject}</button>`
+          )
+          .join("");
+        currentSubject = 0;
+        renderContent();
+      }
 
-      document.getElementById("pyqs").innerHTML =
-        `<h2>${subj.subject} - PYQs</h2><ul>` +
-        subj.pyqs.map(p => `<li>📄 <a href="${p.link}" target="_blank">${p.name}</a></li>`).join('') +
-        `</ul>`;
+      function renderContent() {
+        const subj = semesters[currentSemester][currentSubject];
+        document.getElementById("notes").innerHTML =
+          `<h2>${subj.subject} - Notes</h2><ul>` +
+          subj.notes
+            .map(
+              (n) =>
+                `<li>📘 <a href="${n.link}" target="_blank">${n.name}</a></li>`
+            )
+            .join("") +
+          `</ul>`;
+
+        document.getElementById("pyqs").innerHTML =
+          `<h2>${subj.subject} - PYQs</h2><ul>` +
+          subj.pyqs
+            .map(
+              (p) =>
+                `<li>📄 <a href="${p.link}" target="_blank">${p.name}</a></li>`
+            )
+            .join("") +
+          `</ul>`;
         document.getElementById("lecture").innerHTML =
-        `<h2>${subj.subject} - Lecture</h2><ul>` +
-        subj.lecture.map(p => `<li>📄 <a href="${p.link}" target="_blank">${p.name}</a></li>`).join('') +
-        `</ul>`;
+          `<h2>${subj.subject} - Lecture</h2><ul>` +
+          subj.lecture
+            .map(
+              (p) =>
+                `<li>📄 <a href="${p.link}" target="_blank">${p.name}</a></li>`
+            )
+            .join("") +
+          `</ul>`;
         document.getElementById("impque").innerHTML =
-        `<h2>${subj.subject} - IMPQUE</h2><ul>` +
-        subj.impque.map(p => `<li>📄 <a href="${p.link}" target="_blank">${p.name}</a></li>`).join('') +
-        `</ul>`;
-    }
+          `<h2>${subj.subject} - IMPQUE</h2><ul>` +
+          subj.impque
+            .map(
+              (p) =>
+                `<li>📄 <a href="${p.link}" target="_blank">${p.name}</a></li>`
+            )
+            .join("") +
+          `</ul>`;
+      }
 
-    function selectSubject(index) {
-      currentSubject = index;
-      document.querySelectorAll(".subject-btn").forEach(btn => btn.classList.remove("active"));
-      document.querySelectorAll(".subject-btn")[index].classList.add("active");
-      renderContent();
-    }
+      function selectSubject(index) {
+        currentSubject = index;
+        document
+          .querySelectorAll(".subject-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        document
+          .querySelectorAll(".subject-btn")
+          [index].classList.add("active");
+        renderContent();
+      }
 
-    function showTab(tab) {
-      document.querySelectorAll(".tab-buttons button").forEach(btn => btn.classList.remove("active"));
-      event.target.classList.add("active");
-      document.getElementById("notes").style.display = tab === 'notes' ? 'block' : 'none';
-      document.getElementById("pyqs").style.display = tab === 'pyqs' ? 'block' : 'none';
-      document.getElementById("lecture").style.display = tab === 'lecture' ? 'block' : 'none';
-      document.getElementById("impque").style.display = tab === 'impque' ? 'block' : 'none';
-    }
+      function showTab(tab) {
+        document
+          .querySelectorAll(".tab-buttons button")
+          .forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
+        document.getElementById("notes").style.display =
+          tab === "notes" ? "block" : "none";
+        document.getElementById("pyqs").style.display =
+          tab === "pyqs" ? "block" : "none";
+        document.getElementById("lecture").style.display =
+          tab === "lecture" ? "block" : "none";
+        document.getElementById("impque").style.display =
+          tab === "impque" ? "block" : "none";
+      }
 
-    function changeSemester() {
-      currentSemester = document.getElementById("semester").value;
+      function changeSemester() {
+        currentSemester = document.getElementById("semester").value;
+        renderSubjects();
+      }
+
+      // Initial Render
       renderSubjects();
-    }
-
-    // Initial Render
-    renderSubjects();
-  </script>
-</body>
+    </script>
+  </body>
 </html>
